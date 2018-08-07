@@ -104,10 +104,10 @@ public class subcar_demo extends JFrame {
                         "돌발 이벤트 - "+sudden_case_info+
                         "<br/><br/>이벤트 발생 위치 X: "+x+" &nbsp;Y: "+y);
                 try {
-                    jsonObject.put("ID", carID);
+                    jsonObject.put("id", carID);
                     jsonObject.put("type", "sudden case");
-                    jsonObject.put("X", x);
-                    jsonObject.put("Y", y);
+                    jsonObject.put("x", x);
+                    jsonObject.put("y", y);
                     jsonObject.put("info", sudden_case_info);
 
                     dataOutputStream.writeUTF(jsonObject.toJSONString());

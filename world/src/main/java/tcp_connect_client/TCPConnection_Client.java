@@ -16,7 +16,7 @@ public class TCPConnection_Client {
 		try {
 
 			scanner = new Scanner(System.in);
-			String serverIp = "155.230.120.114";
+			String serverIp = "127.0.0.1";
 			Socket socket = new Socket(serverIp, 5000);
 			System.out.println("Connected Server");
 			ClientSender clientSender = new ClientSender(socket, "001");
