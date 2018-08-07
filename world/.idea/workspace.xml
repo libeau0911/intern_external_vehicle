@@ -22,8 +22,8 @@
       <file leaf-file-name="TCPConnection_Client.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/TCPConnection_Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1501">
-              <caret line="85" selection-start-line="85" selection-end-line="85" />
+            <state relative-caret-position="931">
+              <caret line="49" column="27" lean-forward="true" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,8 +34,8 @@
       <file leaf-file-name="subcar_demo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar_demo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="144" column="13" lean-forward="true" selection-start-line="144" selection-end-line="145" />
+            <state relative-caret-position="380">
+              <caret line="50" column="31" lean-forward="true" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,6 +65,8 @@
       <find>one</find>
       <find>data</find>
       <find>X</find>
+      <find>message</find>
+      <find>subcar_demo</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -414,8 +416,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1166" />
-    <option name="width" value="761" />
+    <option name="x" value="947" />
+    <option name="width" value="980" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -457,6 +459,15 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="tcp_connect_client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="world" type="b2602c69:ProjectViewProjectNode" />
+              <item name="world" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tcp_connect_client" type="462c0819:PsiDirectoryNode" />
+              <item name="subcar_demo" type="e9f4de52:FormNode" />
             </path>
           </expand>
           <select />
@@ -632,19 +643,20 @@
       <workItem from="1532649774416" duration="22114000" />
       <workItem from="1533522956767" duration="525000" />
       <workItem from="1533528910581" duration="4496000" />
-      <workItem from="1533600152589" duration="1686000" />
+      <workItem from="1533600152589" duration="7589000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60916000" />
+    <option name="totallyTimeSpent" value="66819000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1166" y="0" width="761" height="1047" extended-state="0" />
+    <frame x="947" y="0" width="980" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32939914" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -652,11 +664,11 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2746781" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2746781" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32939914" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31409395" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24273859" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -665,7 +677,6 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978677" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32939914" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32832617" />
@@ -928,24 +939,24 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/car-compact.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar_demo.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-      <provider editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/TCPConnection_Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1501">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="931">
+          <caret line="49" column="27" lean-forward="true" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar_demo.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+      <provider editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar_demo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="144" column="13" lean-forward="true" selection-start-line="144" selection-end-line="145" />
+        <state relative-caret-position="380">
+          <caret line="50" column="31" lean-forward="true" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

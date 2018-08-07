@@ -53,8 +53,8 @@ public class subcar_demo extends JFrame {
         //임의 외부 차량 ID
         carID="001";
         //임의 외부 차량 위치
-        x=String.valueOf(126.378);
-        y=String.valueOf(35.55);
+        x=String.valueOf(128.491995);
+        y=String.valueOf(35.835557);
 
         location_label.setText("<html>외부 차량 현재 위치<br/>" +
                 "X: "+x+" Y: "+y);
@@ -134,8 +134,8 @@ public class subcar_demo extends JFrame {
                 try {
                     jsonObject.put("ID", carID);
                     jsonObject.put("type", "accident");
-                    jsonObject.put("X", x);
-                    jsonObject.put("Y", y);
+                    jsonObject.put("x", x);
+                    jsonObject.put("y", y);
                     jsonObject.put("info", accident_info);
 
                     dataOutputStream.writeUTF(jsonObject.toJSONString());
