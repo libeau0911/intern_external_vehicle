@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import javax.swing.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -18,15 +19,15 @@ public class TCP_Connection_Thread implements Runnable {
     ServerSocket serverSocket = null;
     HashMap clients;
 
-    control_center control_center=new control_center();
-    Object x, y, type, info;
+    center c = new center();
+
    public TCP_Connection_Thread() {
         try {
             serverSocket = new ServerSocket(6000);
             clients = new HashMap();
             Collections.synchronizedMap(clients);
             System.out.println("Connection Ready.");
-            control_center control_center = new control_center();
+            c.setFrame();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -85,23 +86,10 @@ public class TCP_Connection_Thread implements Runnable {
                 while (in != null) {
                     String msg = in.readUTF();
                     System.out.println(msg); //
-                    JSONParser jsonParser = new JSONParser();
-                    JSONObject obj = (JSONObject) jsonParser.parse(msg);
-                    System.out.println(obj.get("x"));
-                    System.out.println(obj.get("y"));
-                    System.out.println(obj.get("type"));
-                    System.out.println(obj.get("info"));
-                    x=obj.get("x");
-                    y=obj.get("y");
-                    type=obj.get("type");
-                    info=obj.get("info");
-                    control_center.setRow(x, y, type, info);
-                    control_center.setFrame();
+                    c.updateTable(msg);
                 }
             } catch (IOException e) {
                 // ignore
-            } catch (ParseException e) {
-                e.printStackTrace();
             } finally {
                 sendToAll("#" + name + "is disconnected.");
                 clients.remove(name);
