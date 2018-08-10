@@ -25,8 +25,13 @@
       <file leaf-file-name="TCP_Connection_Thread.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/tcp/TCP_Connection_Thread.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="505">
               <caret line="91" column="14" lean-forward="true" selection-start-line="91" selection-start-column="14" selection-end-line="91" selection-end-column="14" />
+=======
+            <state relative-caret-position="1862">
+              <caret line="98" column="44" selection-start-line="98" selection-start-column="44" selection-end-line="98" selection-end-column="44" />
+>>>>>>> 563c8fdf45a7e9f81ffd211da5d15535678fb50f
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,8 +51,13 @@
       <file leaf-file-name="center.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/control_center/center.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="101">
               <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+=======
+            <state relative-caret-position="133">
+              <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+>>>>>>> 563c8fdf45a7e9f81ffd211da5d15535678fb50f
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2347#2348#0" expanded="true" />
@@ -249,7 +259,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6135316694653" />
+        <entry key="$PROJECT_DIR$" value="6135503440359" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/build.gradle" value="3895657563" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="1741342742" />
@@ -544,11 +554,16 @@
       <workItem from="1533858888176" duration="6335000" />
       <workItem from="1533867428968" duration="832000" />
       <workItem from="1533868397931" duration="7160000" />
+<<<<<<< HEAD
       <workItem from="1533877663110" duration="8217000" />
+=======
+      <workItem from="1533879142979" duration="262000" />
+>>>>>>> 563c8fdf45a7e9f81ffd211da5d15535678fb50f
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="30086000" />
   </component>
   <component name="ToolWindowManager">
@@ -566,25 +581,55 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+=======
+    <option name="totallyTimeSpent" value="22131000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="956" y="0" width="971" height="1047" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+>>>>>>> 563c8fdf45a7e9f81ffd211da5d15535678fb50f
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32942432" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32942432" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32939914" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2546973" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32942432" />
+=======
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2554974" />
+      <window_info anchor="right" id="Database" order="3" />
+>>>>>>> 563c8fdf45a7e9f81ffd211da5d15535678fb50f
       <window_info anchor="right" id="Gradle" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32942432" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+=======
+      <window_info anchor="right" id="Json Parser" order="3" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+>>>>>>> 563c8fdf45a7e9f81ffd211da5d15535678fb50f
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.32985386" />
     </layout>
   </component>
@@ -740,8 +785,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/control_center/control_center.form">
-      <provider selected="true" editor-type-id="ui-designer" />
       <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="ui-designer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -752,8 +797,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/control_center/center.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="101">
           <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+=======
+        <state relative-caret-position="1862">
+          <caret line="98" column="44" selection-start-line="98" selection-start-column="44" selection-end-line="98" selection-end-column="44" />
+>>>>>>> 563c8fdf45a7e9f81ffd211da5d15535678fb50f
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2347#2348#0" expanded="true" />
@@ -764,8 +814,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tcp/TCP_Connection_Thread.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="505">
           <caret line="91" column="14" lean-forward="true" selection-start-line="91" selection-start-column="14" selection-end-line="91" selection-end-column="14" />
+=======
+        <state relative-caret-position="133">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+>>>>>>> 563c8fdf45a7e9f81ffd211da5d15535678fb50f
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
