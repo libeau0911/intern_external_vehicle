@@ -124,7 +124,6 @@ public class subcar extends JFrame {
                     jsonObject.put("info", sudden_case_info);
 
                     dataOutputStream1.writeUTF(jsonObject.toJSONString());
-                    dataOutputStream2.writeUTF(jsonObject.toJSONString());
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
