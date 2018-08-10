@@ -23,7 +23,7 @@ public class subcar extends JFrame {
     public JPanel message_panel;
     public JLabel message_icon;
     public JLabel message;
-    public DataOutputStream dataOutputStream;
+    public DataOutputStream dataOutputStream1, dataOutputStream2;
 
     public String event;
     public ImageIcon backgroundimage=new ImageIcon(Objects.requireNonNull(this.getClass().getClassLoader().getResource("panel.png")));
@@ -61,8 +61,9 @@ public class subcar extends JFrame {
     public JPanel accident_panel;
     public Graphics g;
 
-    public subcar(DataOutputStream out) {
-        dataOutputStream = out;
+    public subcar(DataOutputStream out1, DataOutputStream out2) {
+        dataOutputStream1 = out1;
+        dataOutputStream2 = out2;
 
         //임의 외부 차량 ID
         carID="001";
@@ -122,7 +123,8 @@ public class subcar extends JFrame {
                     jsonObject.put("y", y);
                     jsonObject.put("info", sudden_case_info);
 
-                    dataOutputStream.writeUTF(jsonObject.toJSONString());
+                    dataOutputStream1.writeUTF(jsonObject.toJSONString());
+                    dataOutputStream2.writeUTF(jsonObject.toJSONString());
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
@@ -151,7 +153,8 @@ public class subcar extends JFrame {
                     jsonObject.put("y", y);
                     jsonObject.put("info", accident_info);
 
-                    dataOutputStream.writeUTF(jsonObject.toJSONString());
+                    dataOutputStream1.writeUTF(jsonObject.toJSONString());
+                    dataOutputStream2.writeUTF(jsonObject.toJSONString());
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
@@ -194,14 +197,23 @@ public class subcar extends JFrame {
             }
         };
 
+        panel1=new JPanel(){
+            @Override
+            protected void paintComponent(Graphics g){
+                super.paintComponent(g);
+                g.drawImage(backgroundimage.getImage(), 0, 0, null);
+            }
+        };
+
         location_label=new JLabel();
         location_label.setForeground(Color.WHITE);
     }
 
+
     public void setFrame() {
         JFrame frame=new JFrame("subcar");
 
-        frame.setContentPane(new subcar(this.dataOutputStream).mainPanel);
+        frame.setContentPane(new subcar(this.dataOutputStream1, this.dataOutputStream2).mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 

@@ -24,11 +24,13 @@ public class control_center {
     public DataOutputStream dataOutputStream;
     public DefaultTableModel model;
     private String columns[]={"종류", "유형", "X", "Y"};
-//    private Object contents[][]={{"돌발", "Wild Animal Appearance", }};
+    private Object contents[][]={};
 
     public control_center(){
 
-        model=new DefaultTableModel();
+        model=new DefaultTableModel(contents, columns);
+
+        table=new JTable(model);
 
         for(int i=0; i<columns.length; i++){
             model.addColumn(columns[i]);
@@ -38,22 +40,21 @@ public class control_center {
         table.setFillsViewportHeight(true);
         table.setPreferredScrollableViewportSize(new Dimension(550, 200));
 
-//        setRow((String) contents[0][0]);
         table.setModel(model);
         scrollPane.setViewportView(table);
 
     }
 
     //정보 추가
-    public void setRow(Object x, Object y, Object name, Object event){
+    public void setRow(Object x, Object y, Object type, Object info){
         Vector row=new Vector();
 
-        row.add("1");
-        row.add("2");
-        row.add("3");
-        row.add("4");
+        row.add(type);
+        row.add(x);
+        row.add(y);
+        row.add(info);
 
-        model.addRow(row);
+        model.fireTableDataChanged();
 
     }
 

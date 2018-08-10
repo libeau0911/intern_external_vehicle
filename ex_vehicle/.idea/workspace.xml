@@ -13,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/world$TCPConnection_Client__1_.ic" NAME="TCPConnection_Client (1) Coverage Results" MODIFIED="1533774405230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/world$TCPConnection_Client__1_.ic" NAME="TCPConnection_Client (1) Coverage Results" MODIFIED="1533875162038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tcp_connect_client.*</FILTER>
     </SUITE>
   </component>
@@ -24,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TCPConnection_Client.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TCPConnection_Client.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/TCPConnection_Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+            <state relative-caret-position="551">
+              <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,16 +39,18 @@
       <file leaf-file-name="subcar.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3591">
-              <caret line="189" column="33" selection-start-line="189" selection-start-column="33" selection-end-line="189" selection-end-column="33" />
+            <state relative-caret-position="722">
+              <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#7716#7888#0" expanded="true" />
+                <element signature="e#7887#7888#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="subcar.form" pinned="false" current-in-tab="true">
+      <file leaf-file-name="subcar.form" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar.form">
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
@@ -413,9 +415,9 @@
         <option value="$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar_demo.form" />
         <option value="$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar_demo.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/tcp_connect_client/TCPConnection_Client.java" />
-        <option value="$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar.java" />
         <option value="$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar.form" />
+        <option value="$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tcp_connect_client/TCPConnection_Client.java" />
       </list>
     </option>
   </component>
@@ -429,9 +431,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="63" />
-    <option name="y" value="229" />
-    <option name="width" value="974" />
+    <option name="x" value="-7" />
+    <option name="width" value="977" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -483,12 +484,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="37" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="297" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -664,41 +666,42 @@
       <workItem from="1533868402569" duration="1028000" />
       <workItem from="1533869439026" duration="5152000" />
       <workItem from="1533874614496" duration="37000" />
+      <workItem from="1533874800319" duration="2788000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134622000" />
+    <option name="totallyTimeSpent" value="137410000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="63" y="229" width="974" height="1047" extended-state="0" />
+    <frame x="-7" y="0" width="977" height="1047" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50104386" side_tool="true" weight="0.27408993" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Json Parser" order="0" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info id="UI Designer" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978677" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.3315565" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50104386" side_tool="true" weight="0.27408993" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="right" id="Json Parser" order="0" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49895614" weight="0.3464819" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49895614" weight="0.0" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Coverage" order="11" side_tool="true" weight="0.16388309" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32939914" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.47599164" />
-      <window_info anchor="right" id="Database" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30385014" />
       <window_info anchor="right" id="Gradle" order="6" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978677" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Coverage" order="11" side_tool="true" weight="0.16403785" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3304904" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -829,7 +832,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/message_red_panel.png" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/message_yellow_panel.png" />
     <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/JPanelWithBackground.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/panel.png" />
     <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar_demo.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar_demo.form" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/red.png">
@@ -871,28 +873,33 @@
     <entry file="file://$USER_HOME$/Documents/new/intern_external_vehicle/world/src/main/java/tcp_connect_client/subcar_demo.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/TCPConnection_Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3591">
-          <caret line="189" column="33" selection-start-line="189" selection-start-column="33" selection-end-line="189" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/panel.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar.form">
       <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/subcar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7716#7888#0" expanded="true" />
+            <element signature="e#7887#7888#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tcp_connect_client/TCPConnection_Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

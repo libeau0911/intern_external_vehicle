@@ -16,14 +16,20 @@ public class TCPConnection_Client {
 		try {
 			scanner = new Scanner(System.in);
 			String serverIp = "155.230.120.112";
-			Socket socket = new Socket(serverIp, 5000);
+            Socket socket1 = new Socket(serverIp, 5000);
+			Socket socket2 = new Socket(serverIp, 6000);
 			System.out.println("Connected Server");
-			ClientSender clientSender = new ClientSender(socket, "001");
-			Thread sender = new Thread(clientSender);
-			Thread receiver = new Thread(new ClientReceiver(socket));
-			sender.start();
-			receiver.start();
-			subcar subcar=new subcar(clientSender.out);
+			ClientSender clientSender1 = new ClientSender(socket1, "001");
+            ClientSender clientSender2 = new ClientSender(socket2, "001");
+			Thread sender1 = new Thread(clientSender1);
+            Thread sender2 = new Thread(clientSender2);
+			Thread receiver1 = new Thread(new ClientReceiver(socket1));
+            Thread receiver2 = new Thread(new ClientReceiver(socket2));
+			sender1.start();
+            sender2.start();
+			receiver1.start();
+            receiver2.start();
+			subcar subcar=new subcar(clientSender1.out, clientSender2.out);
 			subcar.setFrame();
 		} catch (ConnectException ce) {
 			ce.printStackTrace();
