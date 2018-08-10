@@ -23,11 +23,12 @@ public class TCPConnection_Client {
 			Thread receiver = new Thread(new ClientReceiver(socket));
 			sender.start();
 			receiver.start();
-			subcar_demo subcar_demo = new subcar_demo(clientSender.out);
-			subcar_demo.setFrame();
+			subcar subcar=new subcar(clientSender.out);
+			subcar.setFrame();
 		} catch (ConnectException ce) {
 			ce.printStackTrace();
 		} catch (Exception e) {
+		    e.printStackTrace();
 		}
 	} // main
 

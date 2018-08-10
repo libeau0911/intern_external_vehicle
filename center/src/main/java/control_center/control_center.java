@@ -24,7 +24,7 @@ public class control_center {
     public DataOutputStream dataOutputStream;
     public DefaultTableModel model;
     private String columns[]={"종류", "유형", "X", "Y"};
-    private Object contents[][]={{"돌발", "Wild Animal Appearance", }};
+//    private Object contents[][]={{"돌발", "Wild Animal Appearance", }};
 
     public control_center(){
 
@@ -38,14 +38,14 @@ public class control_center {
         table.setFillsViewportHeight(true);
         table.setPreferredScrollableViewportSize(new Dimension(550, 200));
 
-        setRow((String) contents[0][0]);
+//        setRow((String) contents[0][0]);
         table.setModel(model);
         scrollPane.setViewportView(table);
 
     }
 
     //정보 추가
-    public void setRow(String info){
+    public void setRow(Object x, Object y, Object name, Object event){
         Vector row=new Vector();
 
         row.add("1");

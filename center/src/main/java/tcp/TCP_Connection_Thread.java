@@ -19,14 +19,16 @@ public class TCP_Connection_Thread implements Runnable {
     HashMap clients;
 
     control_center control_center=new control_center();
+    Object x, y, type, info;
 
    public TCP_Connection_Thread() {
         try {
-            serverSocket = new ServerSocket(5000);
+            serverSocket = new ServerSocket(6000);
             clients = new HashMap();
             Collections.synchronizedMap(clients);
             System.out.println("Connection Ready.");
             control_center control_center = new control_center();
+            control_center.setFrame();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,9 +89,12 @@ public class TCP_Connection_Thread implements Runnable {
                     System.out.println(msg); //
                     JSONParser jsonParser = new JSONParser();
                     JSONObject obj = (JSONObject) jsonParser.parse(msg);
-                    System.out.println(obj.get("x"));
-                    control_center.setRow(msg);
-                    control_center.setFrame();
+                    x=obj.get(x);
+                    y=obj.get(y);
+                    info=obj.get(info);
+                    type=obj.get(type);
+//                    control_center.setRow(x, y, type, info);
+//                    control_center.setFrame();
                 }
             } catch (IOException e) {
                 // ignore
