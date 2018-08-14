@@ -5,16 +5,16 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.DataOutputStream;
-import java.io.IOException;
-import java.util.Vector;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
-import static java.time.zone.ZoneRulesProvider.refresh;
+import static java.awt.geom.Point2D.distance;
+import static jdk.nashorn.internal.objects.NativeNumber.valueOf;
 
 public class center {
 
@@ -28,12 +28,11 @@ public class center {
     public DataOutputStream dataOutputStream;
     public DefaultTableModel model;
     private String columns[]={"종류", "유형", "X", "Y"};
-    private Object contents[][]={};
-
+//    public Object information[][]=new Object[100][];
+    public ArrayList<Object[]> information=new ArrayList<Object[]>();
     Object x, y, type, info;
     Timer timer=new Timer(0, null);
-    int row=0;
-    String msg=null;
+    public int length=0, flag;
 
     public center(){
 
@@ -73,10 +72,28 @@ public class center {
             type = obj.get("type");
             info = obj.get("info");
 
+//            information[length]=new Object[]{x, y, type, info};
+            information.add(new Object[]{x, y, type, info});
+
             timer = new Timer(200, new ActionListener() {
                 @Override
-                public void actionPerformed(ActionEvent e) {
-                    model.addRow(new Object[]{type, info, x, y});
+                public void actionPerformed(ActionEvent e)
+                {
+                    if(type.equals("accident")){
+                        System.out.printf("%d", information.size());
+                        if(information.size()==1){ model.addRow(new Object[]{type, info, x, y}); }
+                        else{
+                            for(int i=0; i<information.size()-1; i++){
+                                if(getDistance(x, y, information.get(i)[0], information.get(i)[1])){
+                                    System.out.printf("qljd\n");
+                                    if(!info.equals(information.get(i)[3])){ flag=0; }
+                                    else{ flag=1; break;}
+                                }
+                                else{ model.addRow(new Object[]{type, info, x, y}); break; }
+                            }
+                            if(flag==0){ model.addRow(new Object[]{type, info, x, y}); }
+                        }
+                    }
                 }
             });
         }
@@ -91,6 +108,19 @@ public class center {
 
         timer.setDelay(30000);
         timer.start();
+    }
+
+    public boolean getDistance(Object x1, Object y1, Object x2, Object y2){
+        String x_1=x1.toString();
+        String y_1=x1.toString();
+        String x_2=x1.toString();
+        String y_2=x1.toString();
+
+        double dis=distance(Double.valueOf(x_1).doubleValue(), Double.valueOf(y_1).doubleValue(), Double.valueOf(x_2).doubleValue(), Double.valueOf(y_2).doubleValue());
+
+        if(dis<100){ return true; }
+
+        return false;
     }
 
     public void setFrame(){
