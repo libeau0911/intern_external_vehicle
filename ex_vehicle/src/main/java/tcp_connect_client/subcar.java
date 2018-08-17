@@ -54,6 +54,7 @@ public class subcar extends JFrame {
     public String sudden_case_info, accident_info;
     Icon sudden_case_icon, accident_icon;
     String x, y, carID;
+    String test;
     public JPanel panel1;
     private JPanel mainPanel;
     public JLabel subcar_icon;
@@ -76,6 +77,8 @@ public class subcar extends JFrame {
         //임의 외부 차량 ID
         carID="001";
 
+        test="<html>yeongju";
+        location_label.setText(test);
 
         comboBox1.setMaximumRowCount(4);
         comboBox2.setMaximumRowCount(4);
@@ -110,8 +113,14 @@ public class subcar extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 //                message_panel.setBackground(Color.getHSBColor(56, 24, 98));
+                mainPanel.updateUI();
+
                 event="sudden_case";
                 image=image4;
+
+                location_label.setText("texttttttttttt");
+
+
                 if(sudden_case_info==null){
                     sudden_case_icon=sudden_case[0];
                     sudden_case_info="Sudden Stop";
@@ -120,6 +129,7 @@ public class subcar extends JFrame {
                 message.setText("<html> 전송한 이벤트 내용<br/><br/>" +
                         "돌발 이벤트 - "+sudden_case_info+
                         "<br/><br/>이벤트 발생 위치 X: "+GPS.getX()+" &nbsp;Y: "+GPS.getY());
+
                 try {
                     jsonObject.put("id", carID);
                     jsonObject.put("type", "sudden case");
@@ -140,6 +150,8 @@ public class subcar extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 //                message_panel.setBackground(Color.getHSBColor(13, 17, 94));
+                mainPanel.updateUI();
+
                 event="accident";
                 image=image5;
                 if(accident_info==null){
@@ -262,9 +274,7 @@ public class subcar extends JFrame {
             }
         };
 
-        location_label=new JLabel("a");
-        location_label.setForeground(Color.WHITE);
-        location_label.setText("hello");
+//        location_label=new JLabel("a");
         System.out.println("1");
     }
 
