@@ -55,6 +55,7 @@ public class subcar extends JFrame {
     Icon sudden_case_icon, accident_icon;
     String x, y, carID;
     String test;
+    gps GPS;
     public JPanel panel1;
     private JPanel mainPanel;
     public JLabel subcar_icon;
@@ -72,17 +73,13 @@ public class subcar extends JFrame {
         dataOutputStream2 = out2;
 
         loadFile();
-        gps GPS=DataManager.getInstance().getCurrentGPS();
+        GPS = DataManager.getInstance().getCurrentGPS();
         DataManager.getInstance().updateGPS();
         //임의 외부 차량 ID
         carID="001";
-
-        test="<html>yeongju";
         location_label.setText(test);
-
         comboBox1.setMaximumRowCount(4);
         comboBox2.setMaximumRowCount(4);
-
 
         //돌발상황
         comboBox1.addItemListener(new ItemListener() {
@@ -118,9 +115,6 @@ public class subcar extends JFrame {
                 event="sudden_case";
                 image=image4;
 
-                location_label.setText("texttttttttttt");
-
-
                 if(sudden_case_info==null){
                     sudden_case_icon=sudden_case[0];
                     sudden_case_info="Sudden Stop";
@@ -128,7 +122,7 @@ public class subcar extends JFrame {
                 message_icon.setIcon(sudden_case_icon);
                 message.setText("<html> 전송한 이벤트 내용<br/><br/>" +
                         "돌발 이벤트 - "+sudden_case_info+
-                        "<br/><br/>이벤트 발생 위치 X: "+GPS.getX()+" &nbsp;Y: "+GPS.getY());
+                        "<br/><br/>이벤트 발생 위치 X: "+GPS.getX()+" &nbsp;Y: "+ GPS.getY());
 
                 try {
                     jsonObject.put("id", carID);
@@ -138,7 +132,7 @@ public class subcar extends JFrame {
                     jsonObject.put("info", sudden_case_info);
 
                     dataOutputStream1.writeUTF(jsonObject.toJSONString());
-                    dataOutputStream2.writeUTF(jsonObject.toJSONString());
+//                    dataOutputStream2.writeUTF(jsonObject.toJSONString());
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
@@ -184,49 +178,23 @@ public class subcar extends JFrame {
     }
 
     public void updateLabel(){
-//        new Timer(1000, new ActionListener() {
-//
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//
-//                gps GPS=DataManager.getInstance().getCurrentGPS();
-//                DataManager.getInstance().updateGPS();
-//                System.out.println(GPS.getX()+" "+GPS.getY()+"\n");
-//
-//
-//                location_label.setText("<html>외부 차량 현재 위치<br/>" +
-//                        "X: "+GPS.getX()+" Y: "+GPS.getY());
-//                System.out.println(subPanel1);
-//                location_label.repaint();
-//                System.out.println(location_label.getText());
-//            }
-//        }).start();
+        new Timer(1000, new ActionListener() {
 
-        Thread update_label=new Thread(){
-            public void run(){
-                for(;;){
-                    gps GPS=DataManager.getInstance().getCurrentGPS();
-                    DataManager.getInstance().updateGPS();
-                    System.out.println(GPS.getX()+" "+GPS.getY()+"\n");
-                    location_label.setText("<html>외부 차량 현재 위치<br/>" +
-                            "X: "+GPS.getX()+" Y: "+GPS.getY());
-                    System.out.println(location_label.getText());
-                    location_label.repaint();
-                    try {
-                        sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                subPanel1.updateUI();
+                GPS = DataManager.getInstance().getCurrentGPS();
+                DataManager.getInstance().updateGPS();
+                System.out.println(GPS.getX()+" "+GPS.getY()+"\n");
+                location_label.setText("X: "+GPS.getX()+" Y: "+GPS.getY());
             }
-        };
-        update_label.start();
+        }).start();
     }
 
     public static void loadFile() {
 
         try {
-            File file = new File("C:\\Users\\admin\\Desktop\\intern_external_vehicle\\ex_vehicle\\src\\main\\resources\\static\\main.txt");
+            File file = new File(".\\src\\main\\resources\\static\\ex1.txt");
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = "";
@@ -275,6 +243,7 @@ public class subcar extends JFrame {
         };
 
 //        location_label=new JLabel("a");
+
         System.out.println("1");
     }
 
@@ -284,6 +253,7 @@ public class subcar extends JFrame {
 
         frame.setContentPane(this.mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         frame.pack();
         frame.setVisible(true);
         System.out.println(3);

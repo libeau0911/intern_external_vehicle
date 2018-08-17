@@ -1,6 +1,8 @@
 package tcp_connect_client;
 
 import org.json.simple.JSONObject;
+
+import java.awt.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -16,7 +18,7 @@ public class TCPConnection_Client {
 	public static void main(String args[]) {
 		try {
 			scanner = new Scanner(System.in);
-			String serverIp = "155.230.120.112";
+			String serverIp = "127.0.0.1";
             Socket socket1 = new Socket(serverIp, 5000);
 			Socket socket2 = new Socket(serverIp, 6000);
 			System.out.println("Connected Server");
@@ -31,12 +33,10 @@ public class TCPConnection_Client {
 			receiver1.start();
             receiver2.start();
 			subcar subcar=new subcar(clientSender1.out, clientSender2.out);
+			subcar.location_label.setForeground(Color.WHITE);
 			subcar.setFrame();
 			System.out.println(4);
-			System.out.println(subcar.location_label.getText());
-			subcar.location_label.setText("hiiiiiiiii");
-			System.out.println(subcar.location_label.getText());
-			subcar.location_label.updateUI();
+			subcar.updateLabel();
 
 		} catch (ConnectException ce) {
 			ce.printStackTrace();
