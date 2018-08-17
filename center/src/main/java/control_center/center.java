@@ -27,12 +27,13 @@ public class center {
     private JScrollPane scrollPane;
     public DataOutputStream dataOutputStream;
     public DefaultTableModel model;
-    private String columns[]={"종류", "유형", "X", "Y"};
-//    public Object information[][]=new Object[100][];
+    private String columns[]={"종류", "유형", "X", "Y", "중복된 정보"};
+    //    public Object information[][]=new Object[100][];
     public ArrayList<Object[]> information=new ArrayList<Object[]>();
     Object x, y, type, info;
     Timer timer=new Timer(0, null);
-    public int length=0, flag;
+    public int flag, row, cnt=1, tmp=0;
+    public ArrayList<Integer> count=new ArrayList<Integer>();
 
     public center(){
 
@@ -63,35 +64,52 @@ public class center {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            System.out.println(obj.get("x"));
-            System.out.println(obj.get("y"));
-            System.out.println(obj.get("type"));
-            System.out.println(obj.get("info"));
+//            System.out.println(obj.get("x"));
+//            System.out.println(obj.get("y"));
+//            System.out.println(obj.get("type"));
+//            System.out.println(obj.get("info"));
             x = obj.get("x");
             y = obj.get("y");
             type = obj.get("type");
             info = obj.get("info");
 
 //            information[length]=new Object[]{x, y, type, info};
-            information.add(new Object[]{x, y, type, info});
+            information.add(new Object[]{type, info, x, y, cnt});
 
-            timer = new Timer(200, new ActionListener() {
+            timer = new Timer(500, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e)
                 {
                     if(type.equals("accident")){
-                        System.out.printf("%d", information.size());
-                        if(information.size()==1){ model.addRow(new Object[]{type, info, x, y}); }
+                        //model.addRow(new Object[]{type, info, x, y, cnt});
+                        if(information.size()==1){ model.addRow(information.get(0)); }
                         else{
                             for(int i=0; i<information.size()-1; i++){
-                                if(getDistance(x, y, information.get(i)[0], information.get(i)[1])){
-                                    System.out.printf("qljd\n");
-                                    if(!info.equals(information.get(i)[3])){ flag=0; }
-                                    else{ flag=1; break;}
+                                if(getDistance(x, y, information.get(i)[2], information.get(i)[3])){ //x, y 비교
+                                    if(!info.equals(information.get(i)[1])){ flag=0; }
+                                    else{ //info.equals(information.get(i)[3])==TRUE
+                                        flag=1; cnt++;
+                                        System.out.println(model.getRowCount());
+                                        if(i==0){ model.setValueAt(cnt, 0, 4); }
+                                        else {
+                                            for(int j=0; j<model.getRowCount(); j++){
+                                                if(info.equals(model.getValueAt(j, 1))){ row=j; }
+                                            }
+                                            model.setValueAt(cnt, row, 4);
+                                        }
+                                        break;
+                                    }
                                 }
-                                else{ model.addRow(new Object[]{type, info, x, y}); break; }
+                                else{
+                                    model.addRow(new Object[]{type, info, x, y, cnt});
+//                                    count.set(tmp++, cnt);
+                                    break;
+                                }
                             }
-                            if(flag==0){ model.addRow(new Object[]{type, info, x, y}); }
+                            if(flag==0){
+                                cnt=1; model.addRow(new Object[]{type, info, x, y, cnt});
+//                                count.set(tmp++, cnt);
+                            }
                         }
                     }
                 }
@@ -106,7 +124,7 @@ public class center {
 //        table.setFillsViewportHeight(true);
 //        table.setPreferredScrollableViewportSize(new Dimension(550, 200));
 
-        timer.setDelay(30000);
+        timer.setDelay(300000);
         timer.start();
     }
 
