@@ -1,5 +1,7 @@
 package tcp_connect_client;
 
+import GPS.DataManager;
+import GPS.gps;
 import org.json.simple.JSONObject;
 
 import javax.swing.*;
@@ -8,8 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class subcar extends JFrame {
@@ -18,7 +20,7 @@ public class subcar extends JFrame {
     public JComboBox comboBox2;
     public JButton button1;
     public JButton button2;
-
+    public JFrame frame;
     public JLabel location_label;
     public JPanel message_panel;
     public JLabel message_icon;
@@ -26,7 +28,6 @@ public class subcar extends JFrame {
     public DataOutputStream dataOutputStream1, dataOutputStream2;
 
     public String event;
-    public ImageIcon backgroundimage=new ImageIcon(Objects.requireNonNull(this.getClass().getClassLoader().getResource("panel.png")));
     public ImageIcon image1=new ImageIcon(Objects.requireNonNull(this.getClass().getClassLoader().getResource("yellow.png")));
     public ImageIcon image2=new ImageIcon(Objects.requireNonNull(this.getClass().getClassLoader().getResource("red.png")));
     public ImageIcon image3=new ImageIcon(Objects.requireNonNull(this.getClass().getClassLoader().getResource("message_default_panel.png")));
@@ -34,7 +35,6 @@ public class subcar extends JFrame {
     public ImageIcon image5=new ImageIcon(Objects.requireNonNull(this.getClass().getClassLoader().getResource("message_red_panel.png")));
     public ImageIcon image=image3;
 
-    //road damage, luggage 수정
     public Icon[] sudden_case={
             new ImageIcon(Objects.requireNonNull(this.getClass().getClassLoader().getResource("sudden_stop.png"))),
             new ImageIcon(Objects.requireNonNull(this.getClass().getClassLoader().getResource("animal.png"))),
@@ -59,23 +59,27 @@ public class subcar extends JFrame {
     public JLabel subcar_icon;
     public JPanel sudden_case_panel;
     public JPanel accident_panel;
+    private JPanel subPanel1;
     public Graphics g;
+    public static int count = 10;
+    Timer timer=new Timer(0, null);
+
+    static ArrayList<gps> dataArrayList = new ArrayList<>();
 
     public subcar(DataOutputStream out1, DataOutputStream out2) {
         dataOutputStream1 = out1;
         dataOutputStream2 = out2;
 
+        loadFile();
+        gps GPS=DataManager.getInstance().getCurrentGPS();
+        DataManager.getInstance().updateGPS();
         //임의 외부 차량 ID
         carID="001";
-        //임의 외부 차량 위치
-        x=String.valueOf(126.378);
-        y=String.valueOf(35.55);
 
-        location_label.setText("<html>외부 차량 현재 위치<br/>" +
-                "X: "+x+" Y: "+y);
 
         comboBox1.setMaximumRowCount(4);
         comboBox2.setMaximumRowCount(4);
+
 
         //돌발상황
         comboBox1.addItemListener(new ItemListener() {
@@ -115,15 +119,16 @@ public class subcar extends JFrame {
                 message_icon.setIcon(sudden_case_icon);
                 message.setText("<html> 전송한 이벤트 내용<br/><br/>" +
                         "돌발 이벤트 - "+sudden_case_info+
-                        "<br/><br/>이벤트 발생 위치 X: "+x+" &nbsp;Y: "+y);
+                        "<br/><br/>이벤트 발생 위치 X: "+GPS.getX()+" &nbsp;Y: "+GPS.getY());
                 try {
                     jsonObject.put("id", carID);
                     jsonObject.put("type", "sudden case");
-                    jsonObject.put("x", x);
-                    jsonObject.put("y", y);
+                    jsonObject.put("x", GPS.getX());
+                    jsonObject.put("y", GPS.getY());
                     jsonObject.put("info", sudden_case_info);
 
                     dataOutputStream1.writeUTF(jsonObject.toJSONString());
+                    dataOutputStream2.writeUTF(jsonObject.toJSONString());
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
@@ -141,15 +146,16 @@ public class subcar extends JFrame {
                     accident_icon=accident[0];
                     accident_info="Car Crash";
                 }
+
                 message.setText("<html> 전송한 이벤트 내용<br/><br/>" +
                         "돌발 이벤트 - "+accident_info+
-                        "<br/><br/>이벤트 발생 위치 X: "+x+" &nbsp;Y: "+y);
+                        "<br/><br/>이벤트 발생 위치 X: "+GPS.getX()+" &nbsp;Y: "+GPS.getY());
                 message_icon.setIcon(accident_icon);
                 try {
                     jsonObject.put("id", carID);
                     jsonObject.put("type", "accident");
-                    jsonObject.put("x", x);
-                    jsonObject.put("y", y);
+                    jsonObject.put("x", GPS.getX());
+                    jsonObject.put("y", GPS.getY());
                     jsonObject.put("info", accident_info);
 
                     dataOutputStream1.writeUTF(jsonObject.toJSONString());
@@ -159,11 +165,71 @@ public class subcar extends JFrame {
                 }
             }
         });
-
+        System.out.println("??");
         createUIComponents();
-
+//        updateLabel();
+        System.out.println(2);
     }
 
+    public void updateLabel(){
+//        new Timer(1000, new ActionListener() {
+//
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//
+//                gps GPS=DataManager.getInstance().getCurrentGPS();
+//                DataManager.getInstance().updateGPS();
+//                System.out.println(GPS.getX()+" "+GPS.getY()+"\n");
+//
+//
+//                location_label.setText("<html>외부 차량 현재 위치<br/>" +
+//                        "X: "+GPS.getX()+" Y: "+GPS.getY());
+//                System.out.println(subPanel1);
+//                location_label.repaint();
+//                System.out.println(location_label.getText());
+//            }
+//        }).start();
+
+        Thread update_label=new Thread(){
+            public void run(){
+                for(;;){
+                    gps GPS=DataManager.getInstance().getCurrentGPS();
+                    DataManager.getInstance().updateGPS();
+                    System.out.println(GPS.getX()+" "+GPS.getY()+"\n");
+                    location_label.setText("<html>외부 차량 현재 위치<br/>" +
+                            "X: "+GPS.getX()+" Y: "+GPS.getY());
+                    System.out.println(location_label.getText());
+                    location_label.repaint();
+                    try {
+                        sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        update_label.start();
+    }
+
+    public static void loadFile() {
+
+        try {
+            File file = new File("C:\\Users\\admin\\Desktop\\intern_external_vehicle\\ex_vehicle\\src\\main\\resources\\static\\main.txt");
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line = "";
+            while ((line = bufferedReader.readLine()) != null) {
+                if (line == "") continue;
+                dataArrayList.add(new gps(line));
+            }
+            DataManager.getInstance().setGpsdata(dataArrayList);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
     private void createUIComponents() {
         // TODO: place custom component creation code here
 
@@ -196,27 +262,21 @@ public class subcar extends JFrame {
             }
         };
 
-        panel1=new JPanel(){
-            @Override
-            protected void paintComponent(Graphics g){
-                super.paintComponent(g);
-                g.drawImage(backgroundimage.getImage(), 0, 0, null);
-            }
-        };
-
-        location_label=new JLabel();
+        location_label=new JLabel("a");
         location_label.setForeground(Color.WHITE);
+        location_label.setText("hello");
+        System.out.println("1");
     }
 
 
     public void setFrame() {
-        JFrame frame=new JFrame("subcar");
+        frame=new JFrame("subcar");
 
-        frame.setContentPane(new subcar(this.dataOutputStream1, this.dataOutputStream2).mainPanel);
+        frame.setContentPane(this.mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-
         frame.setVisible(true);
+        System.out.println(3);
     }
 
 }

@@ -11,16 +11,17 @@ import java.util.Scanner;
 public class TCPConnection_Client {
 
 	public static Scanner scanner;
+	public static String id="001";
 
 	public static void main(String args[]) {
 		try {
 			scanner = new Scanner(System.in);
-			String serverIp = "127.0.0.1";
+			String serverIp = "155.230.120.112";
             Socket socket1 = new Socket(serverIp, 5000);
 			Socket socket2 = new Socket(serverIp, 6000);
 			System.out.println("Connected Server");
-			ClientSender clientSender1 = new ClientSender(socket1, "001");
-            ClientSender clientSender2 = new ClientSender(socket2, "001");
+			ClientSender clientSender1 = new ClientSender(socket1, id);
+            ClientSender clientSender2 = new ClientSender(socket2, id);
 			Thread sender1 = new Thread(clientSender1);
             Thread sender2 = new Thread(clientSender2);
 			Thread receiver1 = new Thread(new ClientReceiver(socket1));
@@ -31,6 +32,12 @@ public class TCPConnection_Client {
             receiver2.start();
 			subcar subcar=new subcar(clientSender1.out, clientSender2.out);
 			subcar.setFrame();
+			System.out.println(4);
+			System.out.println(subcar.location_label.getText());
+			subcar.location_label.setText("hiiiiiiiii");
+			System.out.println(subcar.location_label.getText());
+			subcar.location_label.updateUI();
+
 		} catch (ConnectException ce) {
 			ce.printStackTrace();
 		} catch (Exception e) {
